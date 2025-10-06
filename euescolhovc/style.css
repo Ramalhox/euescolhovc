@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+/* CORREÇÕES GERAIS E ESTILO BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #dadada; /* Permite que o fundo animado seja visto */
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden; /* Adicionado para evitar barras de rolagem da animação */
+}
+
+main {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* NOVO: Centraliza todos os elementos verticalmente no Main */
+    background: rgb(1, 2, 87); 
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 1); 
+    color: rgb(255, 255, 255); 
+    z-index: 10; 
+    position: relative;
+}
+
+/* Ajustes para o texto principal e o parágrafo de resultado */
+h1 {
+    color: #fffdfd; /* Mantendo a cor do seu tema para o título */
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+#personagemSorteado {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    min-height: 1.5em; /* Garante que o espaço para o texto seja consistente */
+}
+
+/* Estilo para o botão */
+#rollButton {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background-color: #168bb9; /* Cor principal do seu tema */
+    color: rgb(255, 255, 255);
+    font-size: 1.3em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-top: 20px;
+}
+
+#rollButton:hover {
+    background-color: #0e4da0;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+.container-resultado {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    
+    /* FIXA A ALTURA MÁXIMA PARA PARAR O PULO */
+    /* Ajuste 250px se for muito grande ou pequeno para suas imagens mais altas. */
+    height: 250px; 
+    
+    /* Garante que o conteúdo fique no topo do espaço reservado */
+    justify-content: flex-start; 
+}
+/* Estilo para a imagem do personagem */
+img {
+    width: 100%; /* Largura da imagem 100% dentro do seu contêiner */
+    max-width: 180px; /* Limita a largura máxima da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    transition: transform 0.5s ease-out; /* Transição para quando a imagem muda */
+    /* Removido o 'height: 50vh;' para evitar que a imagem fique muito grande */
+}
+
+/* Efeito ao aparecer */
+img.mostrar {
+    transform: scale(1);
+    opacity: 1;
+}
